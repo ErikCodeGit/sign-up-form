@@ -1,0 +1,199 @@
+@font-face {
+  font-family: "Norse-Bold";
+  src: url(fonts/Norse-Bold.otf);
+}
+
+:root {
+  --primary-color: #596d48;
+  --input-border: 1px solid #e5e7eb;
+  --logo-container-height: clamp(5rem, 20vw, 20vh);
+}
+
+html {
+  padding: 0;
+  margin: 0;
+  font-size: clamp(15px, 3vw, 25px);
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+}
+
+.image-container {
+  background-image: url(images/leaf-image.avif);
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 40vw;
+}
+
+.image-container footer {
+  padding: 15px;
+  font-size: 0.7rem;
+}
+
+.image-container footer,
+.image-container footer a {
+  color: white;
+}
+
+.logo-container {
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  font-family: "Norse-Bold";
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: var(--logo-container-height);
+  margin-top: 20vh;
+  font-size: calc(var(--logo-container-height) * 0.75);
+}
+
+.logo-container img {
+  height: 85%;
+}
+
+.signup-container {
+  height: 100vh;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  background-color: rgb(245, 245, 245);
+}
+
+.content > *,
+#form-container > * {
+  margin-left: 3vw;
+}
+
+.content {
+  margin-top: 15vh;
+}
+
+.encouragement,
+#form-container > legend {
+  font-weight: 600;
+  margin-top: 0;
+}
+
+#form-container > legend {
+  margin-bottom: 1rem;
+}
+
+.encouragement {
+  width: 80%;
+  margin-bottom: 3rem;
+}
+
+#form-container {
+  background-color: white;
+  margin-left: 0;
+  margin-bottom: 1.5rem;
+  padding-top: 1rem;
+  padding-bottom: 2rem;
+  box-shadow: rgb(200, 200, 200) 0 5px 10px;
+}
+
+#form-container > form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+#form-container > form > div {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  width: max(15rem, 40%);
+  margin-right: 2rem;
+}
+
+#form-container > form label {
+  font-size: 0.5rem;
+  letter-spacing: 0.08rem;
+  padding: 2px 0;
+}
+
+input {
+  font-size: 0.7rem;
+  border: var(--input-border);
+  border-radius: 3px;
+  height: 1.2rem;
+  padding: 0 0.3rem;
+}
+
+input::placeholder {
+  font-size: 0.9em;
+}
+
+input:invalid,
+input[type="email"]:invalid,
+input#confirm-password.error,
+input#password.error {
+  border-color: red;
+}
+
+input:empty {
+  border: var(--input-border);
+}
+
+input:valid {
+  border-color: green;
+}
+
+input:invalid + span::after,
+input#confirm-password.error + span::after {
+  color: red;
+  font-size: 0.5rem;
+  position: absolute;
+}
+
+input[type="email"]:invalid + span::after {
+  content: "* Please enter a valid email";
+}
+
+input[type="email"][value*=""] + span::after,
+input[type="email"]:placeholder-shown + span::after,
+input[type="email"]:focus + span::after {
+  content: "";
+}
+
+input[type="email"]:placeholder-shown {
+  border: var(--input-border);
+}
+
+input#password:invalid + span::after {
+  content: "* Must be 8-30 characters long";
+}
+
+input#confirm-password.error + span::after {
+  content: "* Passwords don't match";
+}
+
+button[type="submit"] {
+  background-color: var(--primary-color);
+  border: 4px groove rgba(0, 0, 0, 0);
+  padding: 0.5rem 3rem;
+  border-radius: 0.3rem;
+  color: white;
+  box-shadow: rgb(200, 200, 200) 3px 3px 5px;
+  font-weight: bold;
+  font-size: 0.8rem;
+}
+
+button[type="submit"]:active{
+  border-color: gray;
+  background-color: #667c52;
+}
+
+.login-redirect a {
+  text-decoration: none;
+  color: var(--primary-color);
+  font-weight: bold;
+}
